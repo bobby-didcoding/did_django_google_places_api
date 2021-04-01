@@ -99,16 +99,3 @@ class ForgottenPasswordForm(SetPasswordForm):
 		fields = ('password1', 'password2', )
 
 
-
-
-'''
-Basic model-form to enable 2-step auth
-'''
-class TwoStepForm(forms.ModelForm):
-	
-	two_step_code = forms.CharField(max_length=6, required=True,
-		widget=forms.TextInput(attrs={'placeholder': '*Code..'}))
-
-	class Meta:
-		model = UserToken
-		fields = ('two_step_code',)

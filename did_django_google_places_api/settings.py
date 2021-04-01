@@ -132,13 +132,14 @@ LOGIN_URL = "users:sign-in"
 LOGIN_REDIRECT_URL = "users:account"
 LOGOUT_REDIRECT_URL = "users:sign-in"
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'XXX'
-EMAIL_PORT = 'XXX'
-EMAIL_USE_TLS = 'XXX'
-EMAIL_HOST_USER = 'XXX'
-DISPLAY_NAME = "Google maps demo email"
-DONOT_REPLY_EMAIL_PASSWORD = 'XXX'
-CURRENT_SITE = "XXX"
 
-GOOGLE_API_KEY = "XXX"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'bobby@didcoding.com'
+DISPLAY_NAME = "Google places API demo email"
+DONOT_REPLY_EMAIL_PASSWORD = 'uqxodcrynkrjcoib'
+CURRENT_SITE = "localhost:8000"
+
+GOOGLE_API_KEY = "AIzaSyC-GV0ZQvRY7lPNeTZloP1thvUmbm2Tpg4"
