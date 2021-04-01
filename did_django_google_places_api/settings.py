@@ -139,7 +139,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'bobby@didcoding.com'
 DISPLAY_NAME = "Google places API demo email"
-DONOT_REPLY_EMAIL_PASSWORD = 'uqxodcrynkrjcoib'
+DONOT_REPLY_EMAIL_PASSWORD = 'XXX'
 CURRENT_SITE = "localhost:8000"
 
-GOOGLE_API_KEY = "AIzaSyC-GV0ZQvRY7lPNeTZloP1thvUmbm2Tpg4"
+GOOGLE_API_KEY = "XXX"
