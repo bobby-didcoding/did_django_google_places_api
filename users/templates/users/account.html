@@ -1,0 +1,95 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+
+{% block extend_nav %}
+
+<ul class="sidenav">
+  <li><a class="active" href="{% url 'users:account' %}">Demo User Account</a></li>
+  <li><a href="{% url 'users:profile' %}">Demo Profile</a></li>
+  <li><a href="{% url 'users:sign-out' %}">Sign out</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Django Google Places API Demo - User Account</h3>
+
+<div class="container">
+
+  <h4>User account details</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Username</td>
+
+          {% if request.user.userprofile.email_verified %}
+            <td>{{request.user.username}} <b style="color:green">(verified)</b></td>
+          {% else %}
+            <td>{{request.user.username}} <a href="javascript:void(0)" onclick="EmailVerification()"><b style="color:red">(please verify)</b></a></td>
+          {% endif %} 
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>{{request.user.first_name}} {{request.user.last_name}}</td>      
+      </tr>
+
+
+      {% if request.user.userprofile.has_profile %}
+
+        <tr>
+          <td>Telephone</td>
+          <td>{{request.user.userprofile.telephone}}</td>     
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>
+            <address>
+              {{request.user.userprofile.address}}<br>
+              {{request.user.userprofile.town}}<br>
+              {{request.user.userprofile.county}}<br>
+              {{request.user.userprofile.post_code}}<br>
+            </address>
+          </td>      
+        </tr>
+
+      {% else %}
+        <tr>
+          <td>User Profile</td>
+          <td><a href="{% url 'users:profile' %}" >Create user Profile</a></td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+
+
+</div>
+
+<!-- This handels the verified url param & displays a success alert-->
+<script type="text/javascript">
+  var ver = "{{verified|safe}}"
+  if (ver == "true"){
+    alert("Thank you, your email has been verified")
+  }
+</script>
+
+{% endblock %}
+
+
+{% block extend_footer %}
+
+{% endblock %}

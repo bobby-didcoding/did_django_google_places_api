@@ -1,0 +1,60 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+
+{% block extend_nav %}
+
+<ul class="sidenav">
+  <li><a class="active" href="{% url 'users:sign-in' %}">Demo Sign In</a></li>
+  <li><a href="{% url 'users:sign-up' %}">Demo Sign Up</a></li>
+  <li><a href="{% url 'users:forgotten-password' %}">Demo Forgotten Password</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Django Google Places API Demo - Sign In</h3>
+
+<div class="container">
+
+  <form id="signinform" method="POST" action="/">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    {{a_form.username}}
+
+    <label for="password">Password</label>
+    {{a_form.password}}
+
+    <label class="check-container">Show Passwords
+     <input type="checkbox" onclick="showPword()">
+     <span class="checkmark"></span>
+   </label>
+
+   <button type="submit">Sign in</button>
+ </form>
+
+ {{a_form.errors}}
+
+</div>
+
+<!-- This handels the verified url param & displays a success alert-->
+<script type="text/javascript">
+  var token_error = "{{token_error|safe}}"
+  if (token_error == "true"){
+    alert("There was a token error. Please try again")
+  }
+</script>
+
+{% endblock %}
+
+
+{% block extend_footer %}
+
+{% endblock %}

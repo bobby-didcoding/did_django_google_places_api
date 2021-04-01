@@ -1,0 +1,65 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a href="{% url 'users:sign-in' %}">Demo Sign In</a></li>
+  <li><a class="active" href="{% url 'users:sign-up' %}">Demo Sign Up</a></li>
+  <li><a href="{% url 'users:forgotten-password' %}">Demo Forgotten Password</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Django Google Places API Demo - Sign Up</h3>
+
+<div class="container">
+
+
+  <form id="signupform" method="POST" action="/sign-up">
+    {% csrf_token %}
+
+    
+    <label for="first_name">First Name</label>
+    {{u_form.first_name}}
+
+    <label for="last_name">Last Name</label>
+    {{u_form.last_name}}
+
+    <label for="username">Username</label>
+    {{u_form.username}}
+
+    <label for="password1">Password</label>
+    {{u_form.password1}}
+
+    <label for="password2">Confirm Password</label>
+    {{u_form.password2}}
+
+    <label class="check-container">Show Passwords
+     <input type="checkbox" onclick="showPword()">
+     <span class="checkmark"></span>
+    </label>
+
+    <button type="submit">Sign up</button>
+
+  </form>
+</div>
+
+ {{u_form.errors}}
+
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+{% endblock %}

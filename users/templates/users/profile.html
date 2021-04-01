@@ -1,0 +1,77 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a href="{% url 'users:account' %}">Demo User Account</a></li>
+  <li><a class="active" href="{% url 'users:profile' %}">Demo Profile</a></li>
+  <li><a href="{% url 'users:sign-out' %}">Sign out</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Django Google Places API Demo - User Profile for <b style="color:#9c07b6">{{request.user.first_name}} {{request.user.last_name}}</b></h3>
+
+<div class="container">
+
+  <label for="id-google-address">Address</label>
+   <input type="text" placeholder="*Begin typing address" id="id-google-address" name="google_address">
+  
+  <form id="profileform" method="POST" action="/profile">
+    {% csrf_token %}
+
+   
+   <label for="address" class="hidden-el" hidden>Address</label>
+   {{up_form.address}}
+
+   <label for="town" class="hidden-el" hidden>Town/City</label>
+   {{up_form.town}}
+
+   <label for="county" class="hidden-el" hidden>County</label>
+   {{up_form.county}}
+
+   <label for="post_code" class="hidden-el" hidden>Postal Code</label>
+   {{up_form.post_code}}
+
+   <label for="country" class="hidden-el" hidden>Country</label>
+   {{up_form.country}}
+
+   <label for="longitude" class="hidden-el" hidden>Longitude</label>
+   {{up_form.longitude}}
+
+   <label for="latitude" class="hidden-el" hidden>Latitude</label>
+   {{up_form.latitude}}
+
+   <label for="telephone">Telephone</label>
+   {{up_form.telephone}}
+
+   
+   <button type="submit" id="profile-btn" disabled >Update</button>
+ </form>
+
+ {{up_form.errors}}
+
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+  
+  <script type="text/javascript">
+
+    var google_api_key = "{{google_api_key|safe}}";
+
+  </script>
+
+  <script src="{% static 'google_places.js' %}"></script>
+
+{% endblock %}
