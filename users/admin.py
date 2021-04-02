@@ -16,4 +16,5 @@ class UserTokenAdmin(admin.ModelAdmin):
 	list_display = ('id', 'user', 'timestamp')
 
 admin.site.register(UserToken,UserTokenAdmin)
+#86425
 
