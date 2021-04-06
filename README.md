@@ -1,5 +1,5 @@
 # did_django_google_places_api
-Django project with a basic user authentication
+Django project thats uses Googles places API toauto populate form fields
 
 1) cd to development directory
 2) mkvirtualenv did_django_google_places_api

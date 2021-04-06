@@ -49,6 +49,11 @@ ul.sidenav li a:hover:not(.active) {
   padding: 1px 16px;
   height: 1000px;
 }
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 
 @media screen and (max-width: 900px) {
   ul.sidenav {
@@ -253,11 +258,7 @@ button[type=submit]:hover {
   background-color: #730786;
 }
 
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
+
 
 table {
   font-family: 'Courier Prime', monospace;
